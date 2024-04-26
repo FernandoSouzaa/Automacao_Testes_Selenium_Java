@@ -39,6 +39,11 @@ public class CamposTreinamento {
         homePage.validandoClickRadioButton("elementosForm:sexo:0");
     }
 
+    @Test
+    public void interacaoCheckBox(){
+        homePage.checkBox();
+    }
+
     @After
     public void closed() throws InterruptedException {
         Thread.sleep(2000);
