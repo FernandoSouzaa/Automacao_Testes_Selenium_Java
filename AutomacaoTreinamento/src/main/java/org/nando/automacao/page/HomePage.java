@@ -32,6 +32,7 @@ public class HomePage {
             WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
             Select combo = new Select(element);
             combo.selectByIndex(cont);
+            //combo.selectByValue("Superior");
             cont++;
         }
     }
