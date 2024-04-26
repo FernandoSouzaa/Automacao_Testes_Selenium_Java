@@ -3,6 +3,8 @@ package org.nando.automacao.page;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
@@ -22,6 +24,16 @@ public class HomePage {
 
     public void radioButton(){
         driver.findElement(By.id("elementosForm:sexo:0")).click();
+    }
+
+    public void checkBox(){
+        int cont = 0;
+        for (int i=0; cont <= 7; i++){
+            WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
+            Select combo = new Select(element);
+            combo.selectByIndex(cont);
+            cont++;
+        }
     }
 
     public void validandoClickRadioButton(String idCampo){
