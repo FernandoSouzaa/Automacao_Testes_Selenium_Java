@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.Console;
+
 public class HomePage {
 
     WebDriver driver;
@@ -31,8 +33,10 @@ public class HomePage {
         for (int i=0; cont <= 7; i++){
             WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
             Select combo = new Select(element);
-            combo.selectByIndex(cont);
+            //combo.selectByIndex(cont);
             //combo.selectByValue("Superior");
+            combo.selectByVisibleText("2o grau incompleto");
+            Assert.assertEquals("2o grau incompleto", combo.getFirstSelectedOption().getText());
             cont++;
         }
     }
