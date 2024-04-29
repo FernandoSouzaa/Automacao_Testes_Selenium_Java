@@ -44,6 +44,11 @@ public class CamposTreinamento {
         homePage.checkBox();
     }
 
+    @Test
+    public void verificarCampos(){
+        homePage.checkBoxVerificarValores();
+    }
+
     @After
     public void closed() throws InterruptedException {
         Thread.sleep(2000);

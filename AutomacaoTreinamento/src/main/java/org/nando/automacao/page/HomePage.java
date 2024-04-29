@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.Console;
+import java.util.List;
 
 public class HomePage {
 
@@ -39,6 +40,23 @@ public class HomePage {
             Assert.assertEquals("2o grau incompleto", combo.getFirstSelectedOption().getText());
             cont++;
         }
+    }
+
+    //pega os campos combo salva na lista, verifica a quantidade e verifca de um determinado campo está presente no combo
+    public void checkBoxVerificarValores(){
+        WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
+        Select combo = new Select(element);
+        List<WebElement> options = combo.getOptions();
+        Assert.assertEquals(8, options.size());
+
+        boolean encontrou = false;
+        for(WebElement option : options){
+            if (option.getText().equals("Mestrado")){
+                encontrou = true;
+                break;
+            }
+        }
+        Assert.assertTrue(encontrou);
     }
 
     public void validandoClickRadioButton(String idCampo){
