@@ -54,6 +54,16 @@ public class CamposTreinamento {
         homePage.checkComboMultiplo();
     }
 
+    @Test
+    public void pegarTextoTela(){
+        homePage.devePegarOTextoNaTela();
+    }
+
+    @Test
+    public void alertSimples() throws InterruptedException {
+        homePage.deveInteragirComAlertSimples();
+    }
+
     @After
     public void closed() throws InterruptedException {
         Thread.sleep(2000);

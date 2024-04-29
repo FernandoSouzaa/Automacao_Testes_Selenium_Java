@@ -1,6 +1,7 @@
 package org.nando.automacao.page;
 
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -69,6 +70,25 @@ public class HomePage {
         //pega todos os valores que foram selecionados
         List<WebElement> allSelectorsOptions = combo.getAllSelectedOptions();
         Assert.assertEquals(3, allSelectorsOptions.size());
+    }
+
+    //localizar textos atraves de tags
+    public void devePegarOTextoNaTela(){
+//        Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("Campo de Treinamento"));
+        Assert.assertEquals("Campo de Treinamento",driver.findElement(By.tagName("h3")).getText());
+    }
+
+    public void deveInteragirComAlertSimples() throws InterruptedException {
+        driver.findElement(By.id("alert")).click();
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals("Alert Simples", alert.getText());
+        Thread.sleep(1000);
+        alert.accept();
+
+        driver.findElement(By.id("elementosForm:nome")).sendKeys("Alert Simples");
+        Assert.assertEquals("Alert Simples", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+
+
     }
 
     public void validandoClickRadioButton(String idCampo){
