@@ -49,6 +49,11 @@ public class CamposTreinamento {
         homePage.checkBoxVerificarValores();
     }
 
+    @Test
+    public void verificarComboMultiplo(){
+        homePage.checkComboMultiplo();
+    }
+
     @After
     public void closed() throws InterruptedException {
         Thread.sleep(2000);

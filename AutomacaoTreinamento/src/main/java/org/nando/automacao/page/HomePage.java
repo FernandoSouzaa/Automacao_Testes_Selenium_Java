@@ -59,6 +59,18 @@ public class HomePage {
         Assert.assertTrue(encontrou);
     }
 
+    public void checkComboMultiplo(){
+        WebElement element = driver.findElement(By.id("elementosForm:esportes"));
+        Select combo = new Select(element);
+        combo.selectByVisibleText("Natacao");
+        combo.selectByVisibleText("Corrida");
+        combo.selectByVisibleText("O que eh esporte?");
+
+        //pega todos os valores que foram selecionados
+        List<WebElement> allSelectorsOptions = combo.getAllSelectedOptions();
+        Assert.assertEquals(3, allSelectorsOptions.size());
+    }
+
     public void validandoClickRadioButton(String idCampo){
         Assert.assertTrue(driver.findElement(By.id(idCampo)).isSelected());
     }
