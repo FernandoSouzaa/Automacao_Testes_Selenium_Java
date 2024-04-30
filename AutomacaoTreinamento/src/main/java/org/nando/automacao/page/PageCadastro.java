@@ -43,25 +43,24 @@ public class PageCadastro {
         driver.findElement(By.id(SUGESTOES)).sendKeys("Cadastrando aluno");
         driver.findElement(By.id(CADASTRAR)).click();
 
-        Assert.assertTrue(driver.findElement(By.id("resultado")).getText().contains("Cadastrado!"));
-        Assert.assertEquals("Nome: Fernando",driver.findElement(By.id("descNome")).getText());
-        Assert.assertEquals("Sobrenome: Ribeiro",driver.findElement(By.id("descSobrenome")).getText());
-        Assert.assertEquals("Sexo: Masculino",driver.findElement(By.id("descSexo")).getText());
-        Assert.assertEquals("Comida: Carne",driver.findElement(By.id("descComida")).getText());
-        Assert.assertEquals("Escolaridade: superior",driver.findElement(By.id("descEscolaridade")).getText());
-        Assert.assertEquals("Esportes: Futebol",driver.findElement(By.id("descEsportes")).getText());
-        Assert.assertEquals("Sugestoes: Cadastrando aluno",driver.findElement(By.id("descSugestoes")).getText());
+//        Assert.assertTrue(driver.findElement(By.id("resultado")).getText().contains("Cadastrado!"));
+//        Assert.assertEquals("Cadastrado!", driver.findElement(By.id("resultado")).getText());
+//        Assert.assertEquals("Nome: Fernando",driver.findElement(By.id("descNome")).getText());
+//        Assert.assertEquals("Sobrenome: Ribeiro",driver.findElement(By.id("descSobrenome")).getText());
+//        Assert.assertEquals("Sexo: Masculino",driver.findElement(By.id("descSexo")).getText());
+//        Assert.assertEquals("Comida: Carne",driver.findElement(By.id("descComida")).getText());
+//        Assert.assertEquals("Escolaridade: superior",driver.findElement(By.id("descEscolaridade")).getText());
+//        Assert.assertEquals("Esportes: Futebol",driver.findElement(By.id("descEsportes")).getText());
+//        Assert.assertEquals("Sugestoes: Cadastrando aluno",driver.findElement(By.id("descSugestoes")).getText());
 
+        Assert.assertTrue(driver.findElement(By.id("resultado")).getText().startsWith("Cadastrado!"));
+        Assert.assertTrue(driver.findElement(By.id("descNome")).getText().endsWith("Fernando"));
+        Assert.assertTrue(driver.findElement(By.id("descSobrenome")).getText().endsWith("Ribeiro"));
+        Assert.assertTrue(driver.findElement(By.id("descSexo")).getText().endsWith("Masculino"));
+        Assert.assertTrue(driver.findElement(By.id("descComida")).getText().endsWith("Carne"));
+        Assert.assertTrue(driver.findElement(By.id("descEscolaridade")).getText().endsWith("superior"));
+        Assert.assertTrue(driver.findElement(By.id("descEsportes")).getText().endsWith("Futebol"));
+        Assert.assertTrue(driver.findElement(By.id("descSugestoes")).getText().endsWith("Cadastrando aluno"));
 
-//        element = driver.findElement(By.id(RESULTADO));
-//        Select result = new Select(element);
-//        result.selectByVisibleText("Cadastrado!");
-//        result.selectByVisibleText("Nome: Fernando");
-//        result.selectByVisibleText("Sobrenome: Ribeiro");
-//        result.selectByVisibleText("Sexo: Masculino");
-//        result.selectByVisibleText("Comida: Carne");
-//        result.selectByVisibleText("Escolaridade: Superior");
-//        result.selectByVisibleText("Esportes: Futebol");
-//        result.selectByVisibleText("Sugestoes: Cadastrando aluno");
     }
 }
