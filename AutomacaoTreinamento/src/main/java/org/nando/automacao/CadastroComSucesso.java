@@ -29,8 +29,21 @@ public class CadastroComSucesso {
         pageCadastro.cadastarAluno();
     }
 
+    @Test
+    public void regraNegocioCadastro() throws InterruptedException {
+        final String NOME = "elementosForm:nome";
+        final String SOBRENOME = "elementosForm:sobrenome";
+        final String COMIDA_CARNE = "elementosForm:comidaFavorita:0";
+        final String COMIDA_FRANGO = "elementosForm:comidaFavorita:1";
+        pageCadastro.regrasNegocioNomeESobrenome(NOME, "Nome", "Fernando");
+        pageCadastro.regrasNegocioNomeESobrenome(SOBRENOME, "Sobrenome", "Ribeiro");
+        pageCadastro.regraNegocioSexo();
+        pageCadastro.comidaFavorita(COMIDA_CARNE);
+        pageCadastro.comidaFavorita(COMIDA_FRANGO);
+    }
+
     @After
     public void fechar(){
-        driver.quit();
+        //driver.quit();
     }
 }
